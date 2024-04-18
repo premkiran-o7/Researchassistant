@@ -76,3 +76,40 @@ bboxs, lables, confidences = model.decode_predictions(preds)[0]
 from keras_cv_attention_models.coco import data
 data.show_image_with_bboxes(imm, bboxs, lables, confidences, num_classes=90)
 ```
+```
+"root":{3 items
+"info":{...}6 items
+"licenses":[...]8 items
+"images":368 items
+[100 items
+0:{8 items
+"license":int3
+"file_name":string"000000391895.jpg"
+"coco_url":string"http://images.cocodataset.org/train2017/000000391895.jpg"
+"height":int360
+"width":int640
+"date_captured":string"2013-11-14 11:18:45"
+"flickr_url":string"http://farm9.staticflickr.com/8186/8119368305_4e622c8349_z.jpg"
+"id":int391895
+}
+1:{8 items
+"license":int4
+"file_name":string"000000522418.jpg"
+"coco_url":string"http://images.cocodataset.org/train2017/000000522418.jpg"
+"height":int480
+"width":int640
+"date_captured":string"2013-11-14 11:38:44"
+"flickr_url":string"http://farm1.staticflickr.com/1/127244861_ab0c0381e7_z.jpg"
+"id":int522418
+}
+2:{8 items
+"license":int3
+"file_name":string"000000184613.jpg"
+"coco_url":string"http://images.cocodataset.org/train2017/000000184613.jpg"
+"height":int336
+"width":int500
+"date_captured":string"2013-11-14 12:36:29"
+"flickr_url":string"http://farm3.staticflickr.com/2169/2118578392_1193aa04a0_z.jpg"
+"id":int184613
+}
+```
