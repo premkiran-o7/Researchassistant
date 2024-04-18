@@ -62,3 +62,17 @@ cocoEval.evaluate()
 cocoEval.accumulate()
 cocoEval.summarize()
 ```
+```
+from keras_cv_attention_models import efficientdet
+model = efficientdet.EfficientDetD0(pretrained="coco")
+
+# Run prediction
+from keras_cv_attention_models import test_images
+imm = test_images.dog_cat()
+preds = model(model.preprocess_input(imm))
+bboxs, lables, confidences = model.decode_predictions(preds)[0]
+
+# Show result
+from keras_cv_attention_models.coco import data
+data.show_image_with_bboxes(imm, bboxs, lables, confidences, num_classes=90)
+```
