@@ -20,3 +20,45 @@ Algorithm 1: Det-AdvProp
      min( L_det(x_i, y_i, b_i) + L_det(x_i^{adv}, y_i, b_i) )
   8. **end for**
   ```
+```
+# Define data paths and splits
+data_dir = '/kaggle/input/coco-2017-dataset/coco2017'
+splits = {
+    'train': {
+        'ann_filename': f"{data_dir}/annotations/instances_train2017.json",
+        'img_dir': f"{data_dir}/train2017",
+    },
+    'val': {
+        'ann_filename': f"{data_dir}/annotations/instances_val2017.json",
+        'img_dir': f"{data_dir}/val2017",
+    },
+}
+```
+```
+import tensorflow as tf
+train_img_dataset = tf.data.Dataset.list_files(f"{splits['train']['img_dir']}/*.jpg")
+```
+```
+%matplotlib inline
+import matplotlib.pyplot as plt
+from pycocotools.coco import COCO
+from pycocotools.cocoeval import COCOeval
+import numpy as np
+import skimage.io as io
+import pylab
+pylab.rcParams['figure.figsize'] = (10.0, 8.0)
+
+# load and display image
+# I = io.imread('%s/images/%s/%s'%(dataDir,dataType,img['file_name']))
+# use url to load image
+I = io.imread(img['coco_url'])
+plt.axis('off')
+plt.imshow(I)
+plt.show()
+
+cocoEval = COCOeval(cocoGt,cocoDt,annType)
+cocoEval.params.imgIds  = imgIds
+cocoEval.evaluate()
+cocoEval.accumulate()
+cocoEval.summarize()
+```
